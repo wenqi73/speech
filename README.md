@@ -24,5 +24,12 @@ The parser of =Takahashi.js= accepts a Markdown-like syntax:
 - =+striked+= : this syntax is inspired by Org-mode.
 - =```lisp= : The same as Github-flavored Markdown -- code block with syntax highlight. 
 
+* Play
+```bash
+npm i express
+node server.js
+```
+Open `http://localhost:3001`
+
 * License
 MIT

@@ -27,7 +27,7 @@ onload = function() {
     Parser.prototype.getMarkdownFileContentAsString = function () {
         // XMLHttpRequest
         var r = new XMLHttpRequest();
-        r.open("GET", this.markdownFileUrl,false); // sync
+        r.open("GET", this.markdownFileUrl, false); // sync
         r.overrideMimeType('text/plain; charset=utf-8');
         r.send();
         if (r.readyState == 4 && r.status == 200){
@@ -49,6 +49,9 @@ onload = function() {
         return shit.parsed;
     };
 
+    /**
+     * parse string line by
+     */
     Parser.prototype.__parse = function(lines, parsed){
         parsed = parsed || [];
         var imagePattern = /!\[\]\((.+?)\)/;
@@ -226,7 +229,10 @@ onload = function() {
     }
 
     document.onkeydown = function(e) {
-        var to = currentPageNumber + {39: 1, 37: -1}[e.which];
+        // 39 right arrow
+        // 37 left arrow
+        // 32 space
+        var to = currentPageNumber + {39: 1, 37: -1, 32: 1}[e.which];
         if (to in availablePageNumbers) {
             switchSlide(currentPageNumber, to);
         }
